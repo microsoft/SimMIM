@@ -27,7 +27,7 @@ simple framework for masked image modeling. From systematically study, we find t
 
 **ImageNet-1K Pre-trained and Fine-tuned Models**
 
-| name | pre-train epochs | pre-train resolution | fine-tune resolution | acc@1 | pre-train model | fine-tune model |
+| name | pre-train epochs | pre-train resolution | fine-tune resolution | acc@1 | pre-trained model | fine-tuned model |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Swin-Base | 100 | 192x192 | 192x192 | 82.8 | [google](https://drive.google.com/file/d/1Wcbr66JL26FF30Kip9fZa_0lXrDAKP-d/view?usp=sharing)/[config](configs/swin_base__100ep/simmim_pretrain__swin_base__img192_window6__100ep.yaml) | [google](https://drive.google.com/file/d/1RsgHfjB4B1ZYblXEQVT-FPX3WSvBrxcs/view?usp=sharing)/[config](configs/swin_base__100ep/simmim_finetune__swin_base__img192_window6__100ep.yaml) |
 | Swin-Base | 100 | 192x192 | 224x224 | 83.5 | [google](https://drive.google.com/file/d/1Wcbr66JL26FF30Kip9fZa_0lXrDAKP-d/view?usp=sharing)/[config](configs/swin_base__100ep/simmim_pretrain__swin_base__img192_window6__100ep.yaml) | [google](https://drive.google.com/file/d/1mb43BkW56F5smwiX-g7QUUD7f1Rftq8u/view?usp=sharing)/[config](configs/swin_base__100ep/simmim_finetune__swin_base__img224_window7__100ep.yaml) |
@@ -40,7 +40,7 @@ simple framework for masked image modeling. From systematically study, we find t
 
 **ImageNet-1K Pre-trained and Fine-tuned Models**
 
-| name | pre-train epochs | pre-train resolution | fine-tune resolution | acc@1 | pre-train model | fine-tune model |
+| name | pre-train epochs | pre-train resolution | fine-tune resolution | acc@1 | pre-trained model | fine-tuned model |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | ViT-Base | 800 | 224x224 | 224x224 | 83.8 | [google](https://drive.google.com/file/d/1dJn6GYkwMIcoP3zqOEyW1_iQfpBi8UOw/view?usp=sharing)/[config](configs/vit_base__800ep/simmim_pretrain__vit_base__img224__800ep.yaml) | [google](https://drive.google.com/file/d/1fKgDYd0tRgyHyTnyB1CleYxjo0Gn5tEB/view?usp=sharing)/[config](configs/vit_base__800ep/simmim_finetune__vit_base__img224__800ep.yaml) |
 
@@ -59,9 +59,9 @@ simple framework for masked image modeling. From systematically study, we find t
 
 ### Installation
 
-- Install `CUDA 11.3` with `cuDNN 8` following the official installation guide of [CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) and [cuDNN](https://developer.nvidia.com/rdp/cudnn-archive)
+- Install `CUDA 11.3` with `cuDNN 8` following the official installation guide of [CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) and [cuDNN](https://developer.nvidia.com/rdp/cudnn-archive).
 
-- Setup conda environment
+- Setup conda environment:
 ```bash
 # Create environment
 conda create -n SimMIM python=3.8 -y
@@ -84,7 +84,7 @@ cd SimMIM
 pip install -r requirements.txt
 ```
 
-### Evaluate provided models
+### Evaluating provided models
 
 To evaluate a provided model on ImageNet validation set, run:
 ```bash
@@ -92,13 +92,13 @@ python -m torch.distributed.launch --nproc_per_node <num-of-gpus-to-use> main_fi
 --eval --cfg <config-file> --resume <checkpoint> --data-path <imagenet-path>
 ```
 
-For example, to evaluate the `Swin Base` model on a single GPU:
+For example, to evaluate the `Swin Base` model on a single GPU, run:
 ```bash
 python -m torch.distributed.launch --nproc_per_node 1 main_finetune.py \
 --eval --cfg configs/swin_base__800ep/simmim_finetune__swin_base__img224_window7__800ep.yaml --resume simmim_finetune__swin_base__img224_window7__800ep.pth --data-path <imagenet-path>
 ```
 
-### Pre-train with SimMIM
+### Pre-training with SimMIM
 To pre-train models with `SimMIM`, run:
 ```bash
 python -m torch.distributed.launch --nproc_per_node <num-of-gpus-to-use> main_simmim.py \ 
@@ -111,7 +111,7 @@ python -m torch.distributed.launch --nproc_per_node 16 main_simmim.py \
 --cfg configs/swin_base__800ep/simmim_pretrain__swin_base__img192_window6__800ep.yaml --batch-size 128 --data-path <imagenet-path>/train [--output <output-directory> --tag <job-tag>]
 ```
 
-### Fine-tune pre-trained models
+### Fine-tuning pre-trained models
 To fine-tune models pre-trained by `SimMIM`, run:
 ```bash
 python -m torch.distributed.launch --nproc_per_node <num-of-gpus-to-use> main_finetune.py \ 
