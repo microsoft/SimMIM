@@ -5,6 +5,11 @@ By [Zhenda Xie](https://zdaxie.github.io)\*, [Zheng Zhang](https://stupidzz.gith
 This repo is the official implementation of ["SimMIM: A Simple Framework for Masked Image Modeling"](https://arxiv.org/abs/2111.09886).
 
 ## Updates
+
+***03/02/2022***
+
+SimMIM got accepted by CVPR 2022. SimMIM was used in ["Swin Transformer V2"](https://github.com/microsoft/Swin-Transformer) to alleviate the data hungry problem for large-scale vision model training.
+
 ***12/09/2021***
 
 Initial commits:
@@ -47,11 +52,11 @@ simple framework for masked image modeling. From systematically study, we find t
 ## Citing SimMIM
 
 ```
-@article{xie2021simmim,
+@inproceedings{xie2021simmim,
   title={SimMIM: A Simple Framework for Masked Image Modeling},
   author={Xie, Zhenda and Zhang, Zheng and Cao, Yue and Lin, Yutong and Bao, Jianmin and Yao, Zhuliang and Dai, Qi and Hu, Han},
-  journal={arXiv preprint arXiv:2111.09886},
-  year={2021}
+  booktitle={International Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2022}
 }
 ```
 
