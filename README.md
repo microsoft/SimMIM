@@ -6,6 +6,10 @@ This repo is the official implementation of ["SimMIM: A Simple Framework for Mas
 
 ## Updates
 
+***09/29/2022***
+
+SimMIM was merged to [Swin Transformer repo on GitHub](https://github.com/microsoft/Swin-Transformer).
+
 ***03/02/2022***
 
 SimMIM got accepted by CVPR 2022. SimMIM was used in ["Swin Transformer V2"](https://github.com/microsoft/Swin-Transformer) to alleviate the data hungry problem for large-scale vision model training.
